@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低碳算力服务系统智能优化 · 暑期课程</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2438;
+    --accent: #00d492;
+    --accent-dim: #00a86b;
+    --accent-glow: rgba(0, 212, 146, 0.15);
+    --carbon: #4ade80;
+    --warm: #fbbf24;
+    --warm-dim: #f59e0b;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-faint: #64748b;
+    --border: #1e293b;
+    --border-bright: #334155;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(10, 14, 20, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    transition: padding 0.3s;
+  }
+  nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+  }
+  nav .logo {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav .logo .dot {
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.15); }
+  }
+  nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  nav ul a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--accent); }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 60px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-content {
+    max-width: 860px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(0, 212, 146, 0.1);
+    border: 1px solid rgba(0, 212, 146, 0.3);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 28px;
+    letter-spacing: 0.5px;
+  }
+  .hero-badge .live-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5.5vw, 58px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 60%, var(--carbon) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .subtitle {
+    font-size: clamp(15px, 2vw, 19px);
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .hero-stat .label {
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    background: var(--accent);
+    color: #051a12;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 212, 146, 0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 212, 146, 0.45);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    background: transparent;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1px solid var(--border-bright);
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* === SECTION COMMON === */
+  section {
+    padding: 100px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 48px;
+    max-width: 680px;
+  }
+
+  /* === MODULES === */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .module-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .module-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--carbon));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .module-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-bright);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  .module-card:hover::before { transform: scaleX(1); }
+  .module-num {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .module-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+  .module-card .desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .module-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .module-topics span {
+    font-size: 12px;
+    padding: 5px 12px;
+    background: rgba(0, 212, 146, 0.08);
+    border: 1px solid rgba(0, 212, 146, 0.15);
+    border-radius: 100px;
+    color: var(--text-dim);
+  }
+  .module-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+  .module-meta .hours {
+    color: var(--warm);
+    font-weight: 600;
+  }
+  .module-meta .deliverable {
+    color: var(--text-dim);
+  }
+
+  /* === TIMELINE === */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--carbon), var(--warm), var(--accent-dim));
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 40px 32px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 4px;
+    width: 14px; height: 14px;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+  }
+  .timeline-week {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .timeline-item h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .timeline-item p {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .timeline-item .deliverable-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 100px;
+    color: var(--warm);
+  }
+
+  /* === SCHOLARS === */
+  .scholars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .scholar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    transition: all 0.3s;
+  }
+  .scholar-card:hover {
+    border-color: var(--accent-dim);
+    background: var(--bg-card-hover);
+  }
+  .scholar-card .name {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .scholar-card .name .en {
+    font-size: 12px;
+    color: var(--text-faint);
+    font-weight: 400;
+    margin-left: 6px;
+  }
+  .scholar-card .org {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .scholar-card .field {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .scholar-card .tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-faint);
+  }
+
+  /* === RESOURCES === */
+  .resources-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-dim);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: rgba(0, 212, 146, 0.1);
+    border-color: var(--accent-dim);
+    color: var(--accent);
+  }
+  .resources-content { display: none; }
+  .resources-content.active { display: block; }
+  .resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .resource-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 18px 20px;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+  }
+  .resource-item:hover {
+    border-color: var(--accent-dim);
+    transform: translateX(4px);
+  }
+  .resource-item .r-type {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .resource-item .r-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .resource-item .r-source {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* === CROSSDISCIPLINARY === */
+  .cross-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .cross-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .cross-card:hover {
+    border-color: var(--warm-dim);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+  .cross-card .cross-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .cross-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .cross-card .cross-q {
+    font-size: 13px;
+    color: var(--warm);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .cross-card .cross-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .cross-card .cross-fields span {
+    font-size: 11px;
+    padding: 3px 10px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.15);
+    border-radius: 100px;
+    color: var(--text-dim);
+  }
+  .cross-card .cross-path {
+    font-size: 13px;
+    color: var(--text-faint);
+    line-height: 1.5;
+  }
+
+  /* === JOURNALS === */
+  .journal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+  }
+  .journal-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    transition: all 0.2s;
+  }
+  .journal-item:hover { border-color: var(--accent-dim); }
+  .journal-item .j-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .journal-item .j-pub {
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .journal-item .j-dir {
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
+  /* === FOOTER === */
+  footer {
+    padding: 60px 24px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  footer .footer-logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  footer p {
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+
+  /* === ANIMATIONS === */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === MOBILE === */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .hero-stats { gap: 24px; }
+    .hero-stat .num { font-size: 28px; }
+    section { padding: 60px 16px; }
+    .modules-grid, .cross-grid { grid-template-columns: 1fr; }
+    .scholars-grid { grid-template-columns: 1fr; }
+    .resource-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span>低碳算力 · 暑期课程</div>
+    <ul>
+      <li><a href="#overview">课程概览</a></li>
+      <li><a href="#modules">五大模块</a></li>
+      <li><a href="#timeline">学习进度</a></li>
+      <li><a href="#scholars">前沿学者</a></li>
+      <li><a href="#resources">学习资源</a></li>
+      <li><a href="#cross">跨学科方向</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><span class="live-dot"></span>2026 暑期在线自学课程</div>
+    <h1>低碳算力服务系统<br>智能优化</h1>
+    <p class="subtitle">
+      在 AI 发展战略与"双碳"目标深度交汇的时代背景下，<br>
+      从理论、方法、机制到安全，全链条掌握绿色算力基础设施的核心能力。
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">40</div>
+        <div class="label">总学时</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">5</div>
+        <div class="label">核心模块</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">5</div>
+        <div class="label">实践项目</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">12+</div>
+        <div class="label">前沿学者</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">6</div>
+        <div class="label">跨学科方向</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#modules" class="btn-primary">探索课程模块 →</a>
+      <a href="#resources" class="btn-secondary">查看学习资源</a>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview" class="fade-in">
+  <div class="section-label">课程概览</div>
+  <h2 class="section-title">从理论到实践，构建绿色算力全链条能力</h2>
+  <p class="section-desc">
+    本课程围绕"低碳算力服务系统智能优化"主题，设置五大模块——分布式智能优化理论、低碳算力服务系统演化规划、算力-电力协同优化调度、算力服务市场机制设计、低碳算力服务系统动态安全管理，涵盖从底层调度算法到上层市场机制的完整知识体系。
+  </p>
+  <div class="modules-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+    <div class="module-card" style="text-align: center; padding: 24px;">
+      <div style="font-size: 32px; margin-bottom: 8px;">⚡</div>
+      <h3 style="font-size: 15px;">理论根基</h3>
+      <p class="desc" style="font-size: 13px;">分布式系统 + 异构调度 + 多目标优化</p>
+    </div>
+    <div class="module-card" style="text-align: center; padding: 24px;">
+      <div style="font-size: 32px; margin-bottom: 8px;">🌍</div>
+      <h3 style="font-size: 15px;">规划方法</h3>
+      <p class="desc" style="font-size: 13px;">算力网络 + 绿色算力 + 东数西算</p>
+    </div>
+    <div class="module-card" style="text-align: center; padding: 24px;">
+      <div style="font-size: 32px; margin-bottom: 8px;">🔌</div>
+      <h3 style="font-size: 15px;">协同调度</h3>
+      <p class="desc" style="font-size: 13px;">算电协同 + 源网荷储 + 碳排放管理</p>
+    </div>
+    <div class="module-card" style="text-align: center; padding: 24px;">
+      <div style="font-size: 32px; margin-bottom: 8px;">⚖️</div>
+      <h3 style="font-size: 15px;">市场机制</h3>
+      <p class="desc" style="font-size: 13px;">博弈论 + 算力定价 + 激励设计</p>
+    </div>
+    <div class="module-card" style="text-align: center; padding: 24px;">
+      <div style="font-size: 32px; margin-bottom: 8px;">🛡️</div>
+      <h3 style="font-size: 15px;">安全韧性</h3>
+      <p class="desc" style="font-size: 13px;">隐私计算 + 鲁棒性 + 基础设施韧性</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section id="modules" class="fade-in">
+  <div class="section-label">五大模块</div>
+  <h2 class="section-title">40 学时 · 5 周完整学习路径</h2>
+  <p class="section-desc">每个模块包含视频课程、阅读材料和实践项目，每周交付一份设计方案或评估报告。</p>
+
+  <div class="modules-grid">
+    <!-- M1 -->
+    <div class="module-card">
+      <div class="module-num">模块一 · 第 1 周</div>
+      <h3>分布式智能优化理论</h3>
+      <p class="desc">掌握异构计算环境下算力资源的协同配置与优化调度的核心理论与算法。</p>
+      <div class="module-topics">
+        <span>CAP 定理</span>
+        <span>异构计算架构</span>
+        <span>NSGA-II</span>
+        <span>强化学习调度</span>
+        <span>并行进化算法</span>
+        <span>K8s 实操</span>
+      </div>
+      <div class="module-meta">
+        <span class="hours">⏱ 8 学时</span>
+        <span class="deliverable">交付：调度方案设计文档</span>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="module-card">
+      <div class="module-num">模块二 · 第 2 周</div>
+      <h3>低碳算力服务系统演化规划</h3>
+      <p class="desc">利用多源异构数据支撑算力系统的布局规划、容量配置与动态演进决策。</p>
+      <div class="module-topics">
+        <span>算力网络三层架构</span>
+        <span>ELII 框架</span>
+        <span>东数西算</span>
+        <span>PUE 指标</span>
+        <span>容量规划</span>
+        <span>全生命周期评价</span>
+      </div>
+      <div class="module-meta">
+        <span class="hours">⏱ 8 学时</span>
+        <span class="deliverable">交付：布局与演进规划报告</span>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="module-card">
+      <div class="module-num">模块三 · 第 3 周</div>
+      <h3>算力-电力协同优化调度</h3>
+      <p class="desc">理解多主体参与下算力、能源与碳排放的协同优化机制，掌握算电协同调度模型。</p>
+      <div class="module-topics">
+        <span>比特到瓦特</span>
+        <span>源网荷储一体化</span>
+        <span>多时空尺度调度</span>
+        <span>碳足迹追踪</span>
+        <span>绿电交易</span>
+        <span>仿真实验</span>
+      </div>
+      <div class="module-meta">
+        <span class="hours">⏱ 8 学时</span>
+        <span class="deliverable">交付：调度方案设计书</span>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="module-card">
+      <div class="module-num">模块四 · 第 4 周</div>
+      <h3>算力服务市场机制设计</h3>
+      <p class="desc">构建高效、公平、低碳导向的跨域算力交易与激励机制的理论与方法。</p>
+      <div class="module-topics">
+        <span>纳什均衡</span>
+        <span>Stackelberg 博弈</span>
+        <span>拍卖理论</span>
+        <span>动态定价</span>
+        <span>双向拍卖</span>
+        <span>激励机制</span>
+      </div>
+      <div class="module-meta">
+        <span class="hours">⏱ 8 学时</span>
+        <span class="deliverable">交付：交易机制方案</span>
+      </div>
+    </div>
+
+    <!-- M5 -->
+    <div class="module-card">
+      <div class="module-num">模块五 · 第 5 周</div>
+      <h3>动态安全管理</h3>
+      <p class="desc">掌握数据隐私保护、算法鲁棒性、系统安全与基础设施韧性的核心技术与评估方法。</p>
+      <div class="module-topics">
+        <span>同态加密</span>
+        <span>差分隐私</span>
+        <span>联邦学习</span>
+        <span>对抗鲁棒性</span>
+        <span>零信任架构</span>
+        <span>AI 韧性</span>
+      </div>
+      <div class="module-meta">
+        <span class="hours">⏱ 8 学时</span>
+        <span class="deliverable">交付：安全评估报告</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="fade-in">
+  <div class="section-label">学习进度</div>
+  <h2 class="section-title">5 周学习路线图</h2>
+  <p class="section-desc">每周专注一个模块，理论与实践交替推进，最终完成 5 份交付物。</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-week">第 1 周</div>
+      <h4>分布式智能优化理论</h4>
+      <p>MIT 6.5840 分布式系统课程 + 异构调度算法学习 + Kubernetes GPU 调度实验</p>
+      <span class="deliverable-tag">📦 交付：异构资源调度方案设计文档</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">第 2 周</div>
+      <h4>低碳算力服务系统演化规划</h4>
+      <p>绿色算力白皮书研读 + "东数西算"案例分析 + 城市级算力中心选址规划</p>
+      <span class="deliverable-tag">📦 交付：区域算力设施布局与演进规划报告</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">第 3 周</div>
+      <h4>算力-电力协同优化调度</h4>
+      <p>算电协同报告研读 + 多主体调度建模 + 算力-电力协同调度仿真实验</p>
+      <span class="deliverable-tag">📦 交付：算电协同调度方案设计书（含数学模型）</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">第 4 周</div>
+      <h4>算力服务市场机制设计</h4>
+      <p>博弈论课程学习 + 算力交易架构研究 + 博弈论交易机制仿真设计</p>
+      <span class="deliverable-tag">📦 交付：低碳算力交易机制方案（含激励模型）</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">第 5 周</div>
+      <h4>动态安全管理</h4>
+      <p>隐私计算技术学习 + 联邦学习实战 + 系统安全评估与韧性提升方案</p>
+      <span class="deliverable-tag">📦 交付：系统安全评估报告（含威胁模型）</span>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOLARS -->
+<section id="scholars" class="fade-in">
+  <div class="section-label">前沿学者</div>
+  <h2 class="section-title">站在巨人的肩膀上</h2>
+  <p class="section-desc">课程内容来自全球顶尖学者研究成果，涵盖分布式系统、可持续计算、算电协同、机制设计、联邦学习等方向。</p>
+
+  <div class="scholars-grid">
+    <div class="scholar-card">
+      <div class="name">施巍松 <span class="en">Weisong Shi</span></div>
+      <div class="org">韦恩州立大学 · IEEE Fellow</div>
+      <div class="field">边缘计算奠基者（2016论文被引4000+），可持续计算实验室主任，2026年发布"边缘物理智能(PIE)"新十年愿景</div>
+      <div class="tag">模块一 · 边缘计算</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">Adam Wierman</div>
+      <div class="org">Caltech · 教授</div>
+      <div class="field">可持续网络系统、数据中心资源管理、碳感知调度，Caltech Rigorous Systems Lab</div>
+      <div class="tag">模块一/三 · 碳感知计算</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">郭庆来</div>
+      <div class="org">清华大学电机系 · IEEE/IET Fellow · 长江学者</div>
+      <div class="field">算力电力协同 pioneer，2024-2025年发布算电协同白皮书，清华-火山引擎联合研究团队负责人</div>
+      <div class="tag">模块二/三 · 算电协同</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">高文</div>
+      <div class="org">鹏城实验室 / 北京大学 · 中国工程院院士</div>
+      <div class="field">"东数西算"推动者，中国算力网负责人，鹏城实验室主任</div>
+      <div class="tag">模块二 · 算力网络</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">Tim Roughgarden</div>
+      <div class="org">Columbia（原Stanford）· 教授</div>
+      <div class="field">算法博弈论权威，《Twenty Lectures on Algorithmic Game Theory》作者，机制设计领域领军人物</div>
+      <div class="tag">模块四 · 机制设计</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">Martin Kleppmann</div>
+      <div class="org">Cambridge · 教授</div>
+      <div class="field">《Designing Data-Intensive Applications》作者，分布式系统工程领域标杆人物</div>
+      <div class="tag">模块一 · 分布式系统</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">Virginia Smith</div>
+      <div class="org">CMU · 教授</div>
+      <div class="field">联邦学习、差分隐私方向核心研究者，CMU Machine Learning Department</div>
+      <div class="tag">模块五 · 联邦学习</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">宋洁</div>
+      <div class="org">北京大学 · 教授</div>
+      <div class="field">AI大模型算力低耗能研究，北京大学大数据科学研究中心</div>
+      <div class="tag">模块二 · 绿色算力</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">Robert Morris</div>
+      <div class="org">MIT · 教授</div>
+      <div class="field">MIT 6.5840 分布式系统课程负责人，PDOS Lab核心成员</div>
+      <div class="tag">模块一 · 分布式系统</div>
+    </div>
+    <div class="scholar-card">
+      <div class="name">Eva Tardos</div>
+      <div class="org">Cornell · 教授</div>
+      <div class="field">算法博弈论、网络博弈，《Algorithmic Game Theory》合编者</div>
+      <div class="tag">模块四 · 博弈论</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="fade-in">
+  <div class="section-label">学习资源</div>
+  <h2 class="section-title">精选资源库</h2>
+  <p class="section-desc">聚合全球顶尖课程、白皮书、开源项目和经典教材，构建完整自学路径。</p>
+
+  <div class="resources-tabs">
+    <div class="tab-btn active" data-tab="video">🎥 视频课程</div>
+    <div class="tab-btn" data-tab="paper">📄 白皮书与报告</div>
+    <div class="tab-btn" data-tab="opensource">🔧 开源项目</div>
+    <div class="tab-btn" data-tab="book">📚 经典教材</div>
+    <div class="tab-btn" data-tab="journal">📖 期刊与会议</div>
+  </div>
+
+  <!-- Video -->
+  <div class="resources-content active" id="tab-video">
+    <div class="resource-list">
+      <a class="resource-item" href="https://pdos.csail.mit.edu/6.824/" target="_blank">
+        <div class="r-type">视频课程</div>
+        <div class="r-title">MIT 6.5840: Distributed Systems (Spring 2026)</div>
+        <div class="r-source">MIT PDOS Lab · 含 5 个 Go 语言 Lab</div>
+      </a>
+      <a class="resource-item" href="https://www.bilibili.com/video/BV1iD4y1U7gu/" target="_blank">
+        <div class="r-type">B站视频</div>
+        <div class="r-title">MIT 6.824 分布式系统 2020春（中文字幕）</div>
+        <div class="r-source">B站 · 含 MapReduce/Raft/GFS/Spanner 全部章节</div>
+      </a>
+      <a class="resource-item" href="https://www.coursera.org/learn/game-theory-1" target="_blank">
+        <div class="r-type">视频课程</div>
+        <div class="r-title">Coursera — Game Theory (Stanford & UBC)</div>
+        <div class="r-source">Coursera · 持续开课 · 涵盖纳什均衡/贝叶斯博弈/重复博弈</div>
+      </a>
+      <a class="resource-item" href="https://www.coursera.org/learn/game-theory-2" target="_blank">
+        <div class="r-type">视频课程</div>
+        <div class="r-title">Coursera — Game Theory II: Advanced Applications</div>
+        <div class="r-source">Coursera · 机制设计/拍卖理论/社会选择 · 与模块四核心高度匹配</div>
+      </a>
+      <a class="resource-item" href="http://theory.stanford.edu/~tim/" target="_blank">
+        <div class="r-type">视频课程</div>
+        <div class="r-title">Tim Roughgarden — Algorithmic Game Theory</div>
+        <div class="r-source">Coursera · 斯坦福机制设计权威课程</div>
+      </a>
+      <a class="resource-item" href="https://www.bilibili.com/video/BV1NB4y1v7ek/" target="_blank">
+        <div class="r-type">B站视频</div>
+        <div class="r-title">联邦学习框架 FederatedScope 实战</div>
+        <div class="r-source">B站 · 事件驱动联邦学习框架 · 含隐私保护技术</div>
+      </a>
+      <a class="resource-item" href="https://www.bilibili.com/video/BV1dJ4m1b7AX/" target="_blank">
+        <div class="r-type">B站视频</div>
+        <div class="r-title">蚂蚁隐语隐私计算实训营</div>
+        <div class="r-source">B站 · 2024-2025持续更新 · MPC/联邦学习/同态加密/差分隐私</div>
+      </a>
+      <a class="resource-item" href="https://www.coursera.org/learn/distributed-computing-big-data" target="_blank">
+        <div class="r-type">视频课程</div>
+        <div class="r-title">Coursera — Distributed Computing for Big Data (IBM)</div>
+        <div class="r-source">Coursera · MapReduce/Spark/Hadoop 生态</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Papers -->
+  <div class="resources-content" id="tab-paper">
+    <div class="resource-list">
+      <a class="resource-item" href="https://www.docin.com/p-4635038308.html" target="_blank">
+        <div class="r-type">白皮书</div>
+        <div class="r-title">绿色算力技术创新研究报告(2024年)</div>
+        <div class="r-source">中国信通院 · 设施层/设备层/平台层技术创新全景</div>
+      </a>
+      <a class="resource-item" href="https://www.sohu.com/a/893800836_121649899" target="_blank">
+        <div class="r-type">研究报告</div>
+        <div class="r-title">算力电力协同发展研究报告(2025年)</div>
+        <div class="r-source">中国信通院 · 协同发展阶段/要素/路径系统梳理</div>
+      </a>
+      <a class="resource-item" href="https://max.book118.com/html/2025/0221/5112004001012103.shtm" target="_blank">
+        <div class="r-type">白皮书</div>
+        <div class="r-title">算力电力协同：思路与探索白皮书(2025)</div>
+        <div class="r-source">清华大学 & 火山引擎 · 郭庆来团队</div>
+      </a>
+      <a class="resource-item" href="https://arxiv.org/abs/2405.18070" target="_blank">
+        <div class="r-type">前沿论文</div>
+        <div class="r-title">Carbon-Aware Computing: A Hierarchical Game-Theoretic Approach</div>
+        <div class="r-source">arXiv 2024 · 碳感知计算 + 博弈论交叉论文</div>
+      </a>
+      <a class="resource-item" href="https://news.microsoft.com/wp-content/uploads/prod/sites/418/2023/01/carbon_aware_computing_whitepaper.pdf" target="_blank">
+        <div class="r-type">白皮书</div>
+        <div class="r-title">Carbon-aware Computing Whitepaper</div>
+        <div class="r-source">Microsoft Research · 碳感知计算理论与实践</div>
+      </a>
+      <a class="resource-item" href="https://www.sohu.com/a/795065369_121852023" target="_blank">
+        <div class="r-type">研究报告</div>
+        <div class="r-title">东数西算枢纽节点绿色算力指数研究报告</div>
+        <div class="r-source">中国信通院 · 各枢纽节点绿色算力量化评估</div>
+      </a>
+      <a class="resource-item" href="https://max.book118.com/html/2024/1226/7042015134010013.shtm" target="_blank">
+        <div class="r-type">白皮书</div>
+        <div class="r-title">算网能一体化白皮书(2024版)</div>
+        <div class="r-source">中国电力工程顾问集团 · 紫金山实验室</div>
+      </a>
+      <a class="resource-item" href="https://www.sohu.com/a/845803026_121735625" target="_blank">
+        <div class="r-type">研究报告</div>
+        <div class="r-title">AI快速发展背景下算力电力协同发展的思考</div>
+        <div class="r-source">国网冀北电力 · 岳昊专家团队</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Opensource -->
+  <div class="resources-content" id="tab-opensource">
+    <div class="resource-list">
+      <a class="resource-item" href="https://github.com/GreenAlgorithms/green-algorithms-tool" target="_blank">
+        <div class="r-type">开源工具</div>
+        <div class="r-title">Green Algorithms Calculator</div>
+        <div class="r-source">Cambridge Sustainable Computing Lab · 算法碳排放计算器 v3.0</div>
+      </a>
+      <a class="resource-item" href="https://github.com/Green-Software-Foundation/carbon-aware-sdk" target="_blank">
+        <div class="r-type">开源 SDK</div>
+        <div class="r-title">Carbon Aware SDK</div>
+        <div class="r-source">Microsoft / Green Software Foundation · 含 API 和 SDK</div>
+      </a>
+      <a class="resource-item" href="https://github.com/OpenMined/PySyft" target="_blank">
+        <div class="r-type">开源框架</div>
+        <div class="r-title">PySyft — 隐私保护机器学习库</div>
+        <div class="r-source">OpenMined · 联邦学习 + 差分隐私 + MPC + 同态加密</div>
+      </a>
+      <a class="resource-item" href="https://github.com/tensorflow/privacy" target="_blank">
+        <div class="r-type">开源库</div>
+        <div class="r-title">TensorFlow Privacy</div>
+        <div class="r-source">Google · 差分隐私训练库</div>
+      </a>
+      <a class="resource-item" href="https://github.com/ToniXWD/MIT6.5840" target="_blank">
+        <div class="r-type">实验仓库</div>
+        <div class="r-title">MIT 6.5840 Lab 代码参考</div>
+        <div class="r-source">GitHub · 含课程笔记和 Lab 文档</div>
+      </a>
+      <a class="resource-item" href="https://github.com/Yangfan-Jiang/Federated-Learning-with-Differential-Privacy" target="_blank">
+        <div class="r-type">实验仓库</div>
+        <div class="r-title">差分隐私联邦学习框架</div>
+        <div class="r-source">GitHub · 基于 PyTorch 实现</div>
+      </a>
+      <a class="resource-item" href="https://www.carbon-aware-computing.com/" target="_blank">
+        <div class="r-type">平台</div>
+        <div class="r-title">Carbon-Aware Computing 平台</div>
+        <div class="r-source">提供碳感知计算开箱即用工具</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Books -->
+  <div class="resources-content" id="tab-book">
+    <div class="resource-list">
+      <a class="resource-item" href="https://dataintensive.net/" target="_blank">
+        <div class="r-type">教材</div>
+        <div class="r-title">Designing Data-Intensive Applications</div>
+        <div class="r-source">Martin Kleppmann · 分布式系统工程圣经</div>
+      </a>
+      <a class="resource-item" href="http://theory.stanford.edu/~tim/" target="_blank">
+        <div class="r-type">教材</div>
+        <div class="r-title">Twenty Lectures on Algorithmic Game Theory</div>
+        <div class="r-source">Tim Roughgarden · 机制设计领域经典</div>
+      </a>
+      <a class="resource-item" href="https://zhuanlan.zhihu.com/p/187527902" target="_blank">
+        <div class="r-type">中文笔记</div>
+        <div class="r-title">算法博弈论二十讲（中文学习笔记）</div>
+        <div class="r-source">知乎专栏 · 含迈尔森引理/机制设计/多参数机制设计</div>
+      </a>
+      <a class="resource-item" href="https://doi.org/10.1017/CBO9780511800481" target="_blank">
+        <div class="r-type">教材</div>
+        <div class="r-title">Algorithmic Game Theory</div>
+        <div class="r-source">Nisan, Roughgarden, Tardos, Vazirani 编 · Cambridge University Press</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Journals -->
+  <div class="resources-content" id="tab-journal">
+    <div class="journal-grid">
+      <div class="journal-item">
+        <div class="j-name">IEEE T-SUSC</div>
+        <div class="j-pub">IEEE · ISSN 2377-3782</div>
+        <div class="j-dir">可持续计算</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">IEEE TPS</div>
+        <div class="j-pub">IEEE Xplore</div>
+        <div class="j-dir">电力系统调度</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">IEEE TPDS</div>
+        <div class="j-pub">IEEE Xplore</div>
+        <div class="j-dir">分布式系统</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">IEEE Smart Grid</div>
+        <div class="j-pub">IEEE Xplore</div>
+        <div class="j-dir">智能电网</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">SUSCOM</div>
+        <div class="j-pub">Elsevier · ScienceDirect</div>
+        <div class="j-dir">可持续计算</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">SEG</div>
+        <div class="j-pub">IOS Press</div>
+        <div class="j-dir">绿色计算</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">NeurIPS</div>
+        <div class="j-pub">会议 · AI/ML</div>
+        <div class="j-dir">联邦学习方向</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">ACM EC</div>
+        <div class="j-pub">会议 · 电子商务</div>
+        <div class="j-dir">机制设计与博弈论</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">USENIX OSDI</div>
+        <div class="j-pub">会议 · 系统</div>
+        <div class="j-dir">操作系统与分布式</div>
+      </div>
+      <div class="journal-item">
+        <div class="j-name">ACM SEC</div>
+        <div class="j-pub">会议 · 边缘计算</div>
+        <div class="j-dir">施巍松创立</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS DISCIPLINARY -->
+<section id="cross" class="fade-in">
+  <div class="section-label">跨学科方向</div>
+  <h2 class="section-title">六个值得探索的跨学科研究方向</h2>
+  <p class="section-desc">课程五大模块处于计算机科学、能源工程、经济学、安全学的交叉地带。以下方向供有志于深入研究的同学参考。</p>
+
+  <div class="cross-grid">
+    <div class="cross-card">
+      <div class="cross-icon">⚡ × 💰</div>
+      <h4>碳感知算力调度 × 能源经济学</h4>
+      <div class="cross-q">如何在碳电联合市场下同时最优化碳排放和成本？</div>
+      <div class="cross-fields">
+        <span>分布式系统</span>
+        <span>电力市场</span>
+        <span>碳交易</span>
+      </div>
+      <div class="cross-path">基于 Carbon Aware SDK + 电力市场实时电价数据构建仿真</div>
+    </div>
+    <div class="cross-card">
+      <div class="cross-icon">⚖️ × 🧠</div>
+      <h4>算力市场机制设计 × 行为经济学</h4>
+      <div class="cross-q">如何设计激励机制抑制算力提供者的投机行为？</div>
+      <div class="cross-fields">
+        <span>算法博弈论</span>
+        <span>行为经济学</span>
+        <span>区块链</span>
+      </div>
+      <div class="cross-path">构建 Stackelberg 博弈仿真，验证不同激励策略下的市场均衡</div>
+    </div>
+    <div class="cross-card">
+      <div class="cross-icon">🔒 × 🔌</div>
+      <h4>联邦学习 × 电力系统隐私保护</h4>
+      <div class="cross-q">算电协同中的电力数据隐私如何通过联邦学习保护？</div>
+      <div class="cross-fields">
+        <span>隐私计算</span>
+        <span>电力系统</span>
+        <span>分布式优化</span>
+      </div>
+      <div class="cross-path">用 PySyft 训练跨机构电力负荷预测模型，对比集中式训练的隐私风险</div>
+    </div>
+    <div class="cross-card">
+      <div class="cross-icon">🌐 × 🌱</div>
+      <h4>边缘计算 × 碳排放生命周期评价</h4>
+      <div class="cross-q">边缘计算相比集中式云，在全生命周期碳排放上是增是减？</div>
+      <div class="cross-fields">
+        <span>计算机系统</span>
+        <span>环境工程</span>
+        <span>LCA</span>
+      </div>
+      <div class="cross-path">用 Green Algorithms 计算器对同一 AI 推理任务分别测算云端和边缘碳足迹</div>
+    </div>
+    <div class="cross-card">
+      <div class="cross-icon">🛡️ × 🏗️</div>
+      <h4>AI韧性工程 × 关键基础设施安全</h4>
+      <div class="cross-q">如何评估算力基础设施对抗极端事件的韧性？</div>
+      <div class="cross-fields">
+        <span>安全工程</span>
+        <span>系统可靠性</span>
+        <span>供应链</span>
+      </div>
+      <div class="cross-path">构建覆盖物理层/网络层/服务层的韧性评估框架</div>
+    </div>
+    <div class="cross-card">
+      <div class="cross-icon">🤖 × 🔬</div>
+      <h4>绿色AI算法 × 芯片硬件协同设计</h4>
+      <div class="cross-q">如何从算法和硬件协同设计角度降低AI能耗？</div>
+      <div class="cross-fields">
+        <span>机器学习</span>
+        <span>芯片架构</span>
+        <span>能效优化</span>
+      </div>
+      <div class="cross-path">对比同一模型在 GPU vs NPU vs FPGA 上的能效比</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">⚡ 低碳算力服务系统智能优化</div>
+  <p>2026 暑期在线自学课程 · 40 学时 · 5 大模块 · 5 份交付物</p>
+  <p>编制日期：2026-07-22 · 课程大纲详见配套文档</p>
+</footer>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.resources-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
