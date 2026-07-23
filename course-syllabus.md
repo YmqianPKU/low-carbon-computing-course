@@ -38,18 +38,15 @@
   - B站（2020春中文字幕）：https://www.bilibili.com/video/BV1iD4y1U7gu/
   - B站（经典版）：https://www.bilibili.com/video/BV1kt411v7Rp/
   - 备注：MIT 经典分布式系统课程，涵盖 MapReduce、Raft、GFS、Spanner 等，含 5 个 Go 语言 Lab
-- **Coursera — Distributed Computing for Big Data (IBM)**
-  - 链接：https://www.coursera.org/learn/distributed-computing-big-data
-  - 备注：IBM 出品的分布式计算课程，涵盖 MapReduce、Spark、Hadoop 生态，适合入门
+- **Coursera — Foundations of Distributed Database Systems**
+  - 链接：https://www.coursera.org/learn/foundations-of-distributed-database-systems
+  - 备注：涵盖分布式数据库架构、水平/垂直分区、查询优化与一致性协议，中级课程，持续开课
 - **Coursera — Cloud Computing Specialization (University of Illinois)**
   - 链接：https://www.coursera.org/specializations/cloud-computing
   - 备注：伊利诺伊大学云计算专项课程，含分布式系统、MapReduce、一致性协议等模块
 - **edX — MIT 6.5840 (原 6.824) Lab 资源仓库**
   - GitHub：https://github.com/chaozh/MIT-6.824
   - 备注：MIT 分布式系统课程 Lab 完整实现参考（Go 语言），含 Raft、分片 KV 等
-- **B站 — MIT 6.824 分布式系统课程（2020春中文字幕）**
-  - 链接：https://www.bilibili.com/video/BV1iD4y1U7gu/
-  - 备注：虽然视频为 2020 年版，但课程内容（MapReduce、Raft、GFS）为分布式系统经典基础，MIT 6.5840 课程主页持续更新至 2026 年春
 - **B站 — 分布式系统架构实战教程（26讲）**
   - 链接：https://www.bilibili.com/video/BV165411P7ba/
   - 备注：涵盖 Redis+Dubbo+ZooKeeper 分布式架构实战，适合工程实践补充
@@ -520,7 +517,7 @@
 | 白皮书 | 绿色计算产业发展白皮书(2024) | 绿色计算产业联盟 |
 | 白皮书 | Carbon-aware Computing Whitepaper | Microsoft Research |
 | 视频课 | MIT 6.5840 Distributed Systems (Spring 2026) | MIT OCW / B站 |
-| 视频课 | Coursera — Distributed Computing for Big Data (IBM) | Coursera |
+| 视频课 | Coursera — Foundations of Distributed Database Systems | Coursera |
 | 视频课 | Coursera — Cloud Computing Specialization (UIUC) | Coursera |
 | 视频课 | Coursera — Game Theory (Stanford & UBC) | Coursera |
 | 视频课 | Coursera — Game Theory II: Advanced Applications (Stanford & UBC) | Coursera |
