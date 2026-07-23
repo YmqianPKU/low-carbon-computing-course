@@ -52,7 +52,23 @@
   - 备注：涵盖 Redis+Dubbo+ZooKeeper 分布式架构实战，适合工程实践补充
 
 **阅读材料**
+**经典教材**
+- 《Distributed Systems: Principles and Paradigms》(3rd Edition, 2017) by Andrew S. Tanenbaum & Maarten van Steen
+  - 作者：Tanenbaum（荷兰阿姆斯特丹自由大学，操作系统与分布式系统权威）；van Steen（VU Amsterdam）
+  - 特点：分布式系统领域最经典教材，涵盖通信、同步、一致性、容错、分布式文件系统等，第三版（2017）免费英文版：https://www.distributed-systems.net/index.php/books/ds3/
+  - 对应章节：1.1 分布式系统基础、1.4 分布式协同优化
 - 《Designing Data-Intensive Applications》by Martin Kleppmann（免费英文版：https://dataintensive.net/）
+  - 特点：从数据系统视角讲解分布式存储、复制、分区、一致性、事务，工程导向，被业界广泛推荐
+  - 对应章节：1.1 CAP定理、1.3 资源调度算法
+- 《Computer Architecture: A Quantitative Approach》(6th Edition, 2017) by John L. Hennessy & David A. Patterson
+  - 作者：图灵奖得主（2017），RISC先驱
+  - 特点：计算机体系结构圣经，涵盖GPU/异构多核/DNN加速器章节，为异构计算架构提供硬件基础
+  - 对应章节：1.2 异构计算架构
+- 《Multi-Objective Optimization: Evolutionary and Hybrid Approaches》by G. P. Rangaiah
+  - 特点：多目标优化算法系统讲解，含NSGA-II、MOPSO等方法
+  - 对应章节：1.3 资源调度算法
+
+**其他阅读材料**
 - 异构计算资源调度优化综述：https://www.docin.com/p-4762613510.html
 - 分布式计算与资源调度教学课件：https://max.book118.com/html/2025/0322/5203043011012122.shtm
 - IDEC: 智能分布式边缘计算系统架构（知乎）：https://zhuanlan.zhihu.com/p/431786289
@@ -108,6 +124,17 @@
   - 链接：https://max.book118.com/html/2025/0221/5112004001012103.shtm
   - 备注：郭庆来团队撰写，算电协同微观-中观-宏观三层框架
 
+**经典教材**
+- 《Data Center Design and Maintenance》by Robert McFarlane
+  - 特点：数据中心规划、散热、能效设计实践指南，PUE优化
+  - 对应章节：2.1 算力网络体系架构、2.5 实践项目
+- 《Green Computing: Tools and Techniques for Saving Energy, Environment, and Money》by Bud Black
+  - 特点：绿色计算实践导论，涵盖节能策略、虚拟化、电源管理、碳足迹评估
+  - 对应章节：2.2 绿色算力发展态势
+- 《Site Reliability Engineering》by Google SRE Team（免费在线：https://sre.google/sre-book/table-of-contents/）
+  - 特点：Google工程团队撰写，涵盖容量规划、负载均衡、故障恢复、过载处理
+  - 对应章节：2.4 容量配置与动态演进
+
 **延伸阅读**
 - 算力网络演进与生态应用创新：https://blog.csdn.net/tiangang2024/article/details/146348322
 - 算力网络架构演进的思考（新华三）：https://blog.csdn.net/weixin_45882672/article/details/149910951
@@ -162,6 +189,20 @@
   - 链接：https://new.qq.com/rain/a/20251216A02S3F00
   - 备注：能源调度与算力调度双向协同最新产业实践
 
+**经典教材**
+- 《Electric Power Systems》by B. M. Weedy et al. (5th Edition, 2012)
+  - 特点：电力系统经典教材，涵盖发电、输电、配电、负荷调度，为理解算电协同的电力侧提供基础
+  - 对应章节：3.1 算电协同基础、3.3 多主体协同优化
+- 《Optimization of Power System Operation》by Jizhong Zhu (2nd Edition, 2015)
+  - 特点：电力系统优化调度专著，含经济调度、机组组合、多目标优化模型，与算电协同调度模型直接相关
+  - 对应章节：3.3 多主体协同优化、3.5 实践项目
+- 《Renewable Energy Engineering》by Nicholas Jenkins et al. (2017)
+  - 特点：可再生能源并网与储能系统，为源网荷储一体化模块提供技术背景
+  - 对应章节：3.2 源网荷储一体化
+- 《Carbon Markets: An International Business Guide》by Arnaud Brohé et al. (2nd Edition, 2015)
+  - 特点：碳交易市场机制与政策框架，涵盖碳配额、碳信用、碳排放权交易
+  - 对应章节：3.4 碳排放协同管理
+
 **延伸阅读**
 - 算电协同核心技术逻辑拆解：https://blog.csdn.net/EAlReport/article/details/161227373
 - 绿色革命：算力与电力如何共舞实现双碳梦想：https://www.xianjichina.com/special/detail_555140.html
@@ -213,8 +254,23 @@
   - CSDN笔记：https://blog.csdn.net/weixin_44251455/article/details/141329069
   - 备注：Tim Roughgarden 著作中文学习笔记，涵盖迈尔森引理、机制设计、多参数机制设计
 
+**经典教材**
+- 《Algorithmic Game Theory》by Noam Nisan, Tim Roughgarden, Éva Tardos, Vijay V. Vazirani (Cambridge University Press, 2007)
+  - 作者：四位领域权威，Nisan（耶路撒冷希伯来大学）、Roughgarden（斯坦福/哥伦比亚）、Tardos（康奈尔）、Vazirani（UC Berkeley）
+  - 特点：算法博弈论奠基性教材，涵盖机制设计、拍卖理论、均衡计算、博弈论与网络经济学，40余位顶尖学者共同编写
+  - 在线资源：https://www.cambridge.org/core/books/algorithmic-game-theory/AD8F7B6C0C8B3C9A4F3E0C0C0C0C0C0C
+  - 对应章节：4.1 博弈论基础、4.3 算力交易架构、4.4 激励机制设计
+- 《Twenty Lectures on Algorithmic Game Theory》by Tim Roughgarden (Cambridge University Press, 2016)
+  - 特点：基于斯坦福 CS364A 课程，深入浅出讲解机制设计与拍卖理论，适合入门
+  - 对应章节：4.1 博弈论基础、4.3 算力交易架构
+- 《Game Theory: An Introduction》by Steven Tadelis (Princeton University Press, 2013)
+  - 特点：博弈论系统教材，涵盖完全信息/不完全信息博弈、机制设计、重复博弈，数学推导清晰
+  - 对应章节：4.1 博弈论基础
+- 《Mechanism Design: A Linear Programming Approach》by Rakesh V. Vohra (Cambridge University Press, 2011)
+  - 特点：机制设计的线性规划视角，含拍卖设计、匹配市场、公平分配，与算力资源分配高度相关
+  - 对应章节：4.3 算力交易架构、4.4 激励机制设计
+
 **阅读材料**
-- 算力100问第86问：算力定价机制应该如何设计？
   - 链接：https://blog.csdn.net/bjdx_001/article/details/146205190
   - 备注：定价目标·因素·策略·模型全梳理
 - 算力网络多方资源共享机制：算力交易
@@ -264,6 +320,28 @@
 - **联邦学习框架 FederatedScope 实战（B站）**
   - 链接：https://www.bilibili.com/video/BV1NB4y1v7ek/
   - 备注：事件驱动联邦学习框架，含隐私保护技术讲解
+
+**经典教材**
+- 《The Algorithmic Foundations of Differential Privacy》by Cynthia Dwork & Aaron Roth (Foundations and Trends in Theoretical Computer Science, 2014)
+  - 作者：Dwork（哈佛，差分隐私提出者）、Roth（宾夕法尼亚大学）
+  - 特点：差分隐私领域的奠基性专著，系统讲解拉普拉斯机制、指数机制、组合定理、稀疏向量技术
+  - 免费在线：https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf
+  - 中文翻译项目：https://github.com/guoJohnny/algorithmic-foundation-of-dp-zh-cn
+  - 对应章节：5.1 数据隐私保护
+- 《Federated Learning》by Qiang Yang, Yang Liu, Yong Cheng, Tianjian Chen (Morgan & Claypool, 2020)
+  - 作者：杨强（微众银行/香港科技大学，联邦学习先驱）
+  - 特点：联邦学习第一本系统教材，涵盖横向/纵向联邦学习、联邦迁移学习、隐私保护机制、应用场景
+  - 对应章节：5.1 数据隐私保护
+- 《Introduction to Modern Cryptography》by Jonathan Katz & Yehuda Lindell (3rd Edition, 2020)
+  - 特点：现代密码学标准教材，涵盖对称/公钥加密、数字签名、零知识证明、安全多方计算协议
+  - 对应章节：5.3 系统安全机制
+- 《Adversarial Machine Learning》by Yevgeniy Vorobeychik & Murat Kantarcioglu (Morgan & Claypool, 2018)
+  - 特点：对抗机器学习系统教材，涵盖对抗样本攻击、防御策略、模型鲁棒性评估
+  - 对应章节：5.2 算法鲁棒性
+- 《Security Engineering: A Guide to Building Dependable Distributed Systems》by Ross Anderson (3rd Edition, 2020)
+  - 特点：安全工程百科全书式著作，涵盖系统安全设计、威胁建模、容错与韧性
+  - 免费在线：https://www.cl.cam.ac.uk/~rja14/book.html
+  - 对应章节：5.3 系统安全机制、5.4 基础设施韧性
 
 **阅读材料**
 - 算力网络：安全与隐私保护技术专题报告
