@@ -35,9 +35,10 @@
 **视频课程**
 - MIT 6.5840（原 6.824）: Distributed Systems（Spring 2026）
   - 课程主页：https://pdos.csail.mit.edu/6.824/
+  - **YouTube 官方播放列表**（2020版，Robert Morris 亲授）：https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB
   - B站（2020春中文字幕）：https://www.bilibili.com/video/BV1iD4y1U7gu/
   - B站（经典版）：https://www.bilibili.com/video/BV1kt411v7Rp/
-  - 备注：MIT 经典分布式系统课程，涵盖 MapReduce、Raft、GFS、Spanner 等，含 5 个 Go 语言 Lab
+  - 备注：MIT 经典分布式系统课程，涵盖 MapReduce、Raft、GFS、Spanner 等，含 5 个 Go 语言 Lab（YouTube 播放列表为官方录制版，持续有效）
 - **Coursera — Foundations of Distributed Database Systems**
   - 链接：https://www.coursera.org/learn/foundations-of-distributed-database-systems
   - 备注：涵盖分布式数据库架构、水平/垂直分区、查询优化与一致性协议，中级课程，持续开课
@@ -47,6 +48,9 @@
 - **edX — MIT 6.5840 (原 6.824) Lab 资源仓库**
   - GitHub：https://github.com/chaozh/MIT-6.824
   - 备注：MIT 分布式系统课程 Lab 完整实现参考（Go 语言），含 Raft、分片 KV 等
+- **CMU 15-445 数据库系统（Intro to Database Systems, Spring 2023）**
+  - 课程主页：https://15445.courses.cs.cmu.edu/spring2023/
+  - 备注：CMU 数据库系统入门课（Andy Pavlo 讲授），涵盖存储引擎、索引、查询优化、事务并发控制，含 Bustub 实验，分布式系统背景知识补充
 - **B站 — 分布式系统架构实战教程（26讲）**
   - 链接：https://www.bilibili.com/video/BV165411P7ba/
   - 备注：涵盖 Redis+Dubbo+ZooKeeper 分布式架构实战，适合工程实践补充
@@ -124,6 +128,12 @@
   - 链接：https://max.book118.com/html/2025/0221/5112004001012103.shtm
   - 备注：郭庆来团队撰写，算电协同微观-中观-宏观三层框架
 
+**视频课程**
+- **Harvard CS249R: Edge ML Systems（Machine Learning for Intelligent Systems, 2026版）**
+  - 课程主页：https://harvard-edge.github.io/cs249r_book/
+  - GitHub（含开源教材与幻灯片）：https://github.com/harvard-edge/cs249r_book
+  - 备注：Harvard CS 249R 是面向智能系统（AI/ML）的工程实践课程，涵盖绿色AI、能耗优化、模型压缩、硬件协同设计等章节，MIT Press 2026 年出版开源教材（CC BY-NC-SA 4.0），与模块二"绿色算力"高度匹配
+
 **经典教材**
 - 《Data Center Design and Maintenance》by Robert McFarlane
   - 特点：数据中心规划、散热、能效设计实践指南，PUE优化
@@ -164,6 +174,12 @@
 ### 推荐学习资源
 
 **报告与文章**
+- 2025算电协同发展论坛纪实（演讲嘉宾包括国网、南网、清华等机构专家）
+  - 链接：https://new.qq.com/rain/a/20251216A02S3F00
+  - 备注：算力调度与电力调度双向协同的实践案例与前沿思考
+- 南方电网电碳算协同运营系统发布报道
+  - 链接：https://new.qq.com/rain/a/20250829A05N2500
+  - 备注：电碳算协同运营的最新产业实践
 - "算电协同"助力算力中心绿色低碳发展的实践与思考
   - 链接：http://k.sina.com.cn/article_5953466437_162dab0450670ao1xi.html
   - 备注：国内典型算电协同实践案例
@@ -245,10 +261,16 @@
 - **Coursera — Business Economics and Game Theory for Decision Making (Illinois Tech)**
   - 链接：https://www.coursera.org/learn/illinois-tech-business-economics-and-game-theory-for-decision-making
   - 备注：伊利诺伊理工商业博弈论课程，侧重决策应用，含市场弹性与定价策略
-- **Coursera — Tim Roughgarden 算法博弈论**
+- **Tim Roughgarden 算法博弈论**
   - 讲师学术主页：http://theory.stanford.edu/~tim/
   - Coursera 讲师页：https://www.coursera.org/instructor/~768
-  - 备注：斯坦福教授，《Twenty Lectures on Algorithmic Game Theory》作者，机制设计领域权威
+  - 备注：斯坦福/哥伦比亚大学教授，《Twenty Lectures on Algorithmic Game Theory》作者，机制设计领域权威；相关课程视频见下方
+- **Tim Roughgarden — Foundations of Blockchains（YouTube）**
+  - 链接：https://www.youtube.com/playlist?list=PLEGCF-WLh2RLOHv_xUGLqRts_9JxrckiA
+  - 备注：哥伦比亚大学课程视频，涵盖共识协议（PoW/PoS）、交易费机制设计、区块链博弈论，与模块四激励机制设计直接相关（2020年后持续更新）
+- **Tim Roughgarden — Incentives in Computer Science（YouTube）**
+  - 链接：https://www.youtube.com/playlist?list=PLEGCF-WLh2RJdrKZ431SidRX_T4VmAKx8
+  - 备注：斯坦福 CS269I 精选课程视频，涵盖计算机科学中的市场设计（广告拍卖）、BitTorrent 博弈分析、eBay 信誉系统案例，博弈论在互联网平台中的实际应用
 - **算法博弈论二十讲（中文版笔记）**
   - 知乎专栏：https://zhuanlan.zhihu.com/p/187527902
   - CSDN笔记：https://blog.csdn.net/weixin_44251455/article/details/141329069
@@ -320,6 +342,12 @@
 - **联邦学习框架 FederatedScope 实战（B站）**
   - 链接：https://www.bilibili.com/video/BV1NB4y1v7ek/
   - 备注：事件驱动联邦学习框架，含隐私保护技术讲解
+- **Aalto University CS-E4740 联邦学习（GitHub 课程仓库）**
+  - GitHub：https://github.com/alexjungaalto/FederatedLearning
+  - 备注：Aalto University（芬兰阿尔托大学）硕士级别联邦学习课程，提供完整课件与实验代码，Edition 2024/2025 持续更新，涵盖横向联邦学习、联邦聚合、差分隐私联邦学习等内容，适合系统学习联邦学习理论
+- **CMU 15-445 数据库系统（补充：分布式数据库基础）**
+  - 课程主页：https://15445.courses.cs.cmu.edu/spring2023/
+  - 备注：分布式数据库系统背景知识，可作为模块五"安全多方计算"的前置补充
 
 **经典教材**
 - 《The Algorithmic Foundations of Differential Privacy》by Cynthia Dwork & Aaron Roth (Foundations and Trends in Theoretical Computer Science, 2014)
@@ -594,13 +622,17 @@
 | 白皮书 | 算网能一体化白皮书(2024) | 中国电力工程顾问集团·紫金山实验室 |
 | 白皮书 | 绿色计算产业发展白皮书(2024) | 绿色计算产业联盟 |
 | 白皮书 | Carbon-aware Computing Whitepaper | Microsoft Research |
-| 视频课 | MIT 6.5840 Distributed Systems (Spring 2026) | MIT OCW / B站 |
+| 视频课 | MIT 6.5840 Distributed Systems YouTube（官方录制版）| YouTube / MIT OCW |
+| 视频课 | CMU 15-445 Intro to Database Systems (Spring 2023) | CMU课程主页 |
 | 视频课 | Coursera — Foundations of Distributed Database Systems | Coursera |
 | 视频课 | Coursera — Cloud Computing Specialization (UIUC) | Coursera |
 | 视频课 | Coursera — Game Theory (Stanford & UBC) | Coursera |
 | 视频课 | Coursera — Game Theory II: Advanced Applications (Stanford & UBC) | Coursera |
+| 视频课 | Tim Roughgarden — Foundations of Blockchains (YouTube) | YouTube |
+| 视频课 | Tim Roughgarden — Incentives in Computer Science (YouTube) | YouTube |
 | 视频课 | 蚂蚁隐语隐私计算实训营 (2024-2025) | B站 / 隐语社区 |
-| 视频课 | 联邦学习框架 FederatedScope | B站 |
+| 视频课 | Aalto CS-E4740 Federated Learning (GitHub 2024/2025版) | GitHub |
+| 视频课 | Harvard CS249R Edge ML Systems 开源教材 (MIT Press 2026) | Harvard GitHub |
 | 书籍 | Designing Data-Intensive Applications | Martin Kleppmann |
 | 书籍 | Twenty Lectures on Algorithmic Game Theory | Tim Roughgarden |
 | 书籍 | 边缘计算（第二版） | 施巍松等 |
