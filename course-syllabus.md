@@ -15,6 +15,47 @@
 
 ---
 
+## 资源分层与学习节奏（必读）
+
+> **为什么需要分层**：本课程按"资源池"思路罗列，每模块视频课总时长远超 8 学时。请务必理解：**资源是菜单，不是必点**。8 学时只覆盖「核心」路径。
+
+### 资源标签约定
+
+| 标签 | 含义 | 是否计入 8h | 建议 |
+|------|------|-------------|------|
+| `[核心]` | 模块必修，覆盖 80% 学习目标 | ✅ 占主预算 | 必须完成 |
+| `[拓展]` | 学有余力时深挖 | ❌ 不计入 | 可选，假期再碰 |
+| `[参考]` | 备查/工具手册/报告 | ❌ 随用随查 | 用到再翻 |
+
+**硬性规则**：每模块只选 **1 门主课 + 1 个实践**，其余全归 `[拓展]`。
+
+### 学时拆解公式
+
+每模块 8 学时（≈ 6 小时有效时间 + 2 小时缓冲）建议拆为：
+- **输入 4h**：视频（倍速 1.75x + 字幕）≈ 2.5h + 读幻灯片/论文摘要 ≈ 1h + 费曼笔记 ≈ 0.5h
+- **实践 2h**：动手做实验 / 画设计图 / 写代码片段
+- **综合 2h**：产出周交付物（方案/报告）
+
+### 无导师下的效果保障（四道防线）
+
+1. **主动回忆 + 费曼**：每看完一节，合上视频写 3 句自己的话总结。写不出 = 没懂。
+2. **交付物即考试**：每模块周交付物就是结业项目。能独立产出 = 通过；产不出 = 回看。
+3. **AI 苏格拉底辅导**：每模块结束，让 AI 出 5 道开放题考你并点评回答（比看视频更能暴露盲区）。
+4. **公开输出 + 社区**：笔记发 X / 博客，或进 Green Software Foundation Slack、IEEE PES 社群获取外部反馈。
+
+### 视频自学提效六法
+
+| 技巧 | 提速 | 做法 |
+|------|------|------|
+| 倍速 + 字幕 | 1.5–2x | 讲座类 1.75x 无损 |
+| 先读大纲/幻灯片再定点看 | 省 50% | 跳过已懂，只看卡点 |
+| 文本优先 | 快 3x | MIT OCW / Harvard CS249R 有 transcript，读比看快 |
+| 暂停预测法 | 深度↑ | 每 8–10min 暂停预测下一步 |
+| Obsidian 链接笔记 + Anki | 记忆↑ | 笔记互链逼自己理清；定义进间隔重复 |
+| 80/20 选课 | 聚焦 | 找覆盖 80% 目标的 20% 章节精看 |
+
+---
+
 ## 模块一：分布式智能优化理论（8 学时）
 
 ### 学习目标
@@ -32,8 +73,8 @@
 
 ### 推荐学习资源
 
-**视频课程**
-- MIT 6.5840（原 6.824）: Distributed Systems（Spring 2026）
+**视频课程**　`[核心]` = MIT 6.5840（主课）；CMU 15-445 / B站实战 / Coursera 数据库均归 `[拓展]`
+- **[核心] MIT 6.5840（原 6.824）: Distributed Systems（Spring 2026）**
   - 课程主页：https://pdos.csail.mit.edu/6.824/
   - **YouTube 官方播放列表**（2020版，Robert Morris 亲授）：https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB
   - B站（2020春中文字幕）：https://www.bilibili.com/video/BV1iD4y1U7gu/
@@ -56,12 +97,12 @@
   - 备注：涵盖 Redis+Dubbo+ZooKeeper 分布式架构实战，适合工程实践补充
 
 **阅读材料**
-**经典教材**
-- 《Distributed Systems: Principles and Paradigms》(3rd Edition, 2017) by Andrew S. Tanenbaum & Maarten van Steen
+**经典教材**　`[核心]` = Tanenbaum《Distributed Systems》+ Kleppmann《DDIA》；其余 `[拓展]`
+- **[核心] 《Distributed Systems: Principles and Paradigms》(3rd Edition, 2017) by Andrew S. Tanenbaum & Maarten van Steen**
   - 作者：Tanenbaum（荷兰阿姆斯特丹自由大学，操作系统与分布式系统权威）；van Steen（VU Amsterdam）
   - 特点：分布式系统领域最经典教材，涵盖通信、同步、一致性、容错、分布式文件系统等，第三版（2017）免费英文版：https://www.distributed-systems.net/index.php/books/ds3/
   - 对应章节：1.1 分布式系统基础、1.4 分布式协同优化
-- 《Designing Data-Intensive Applications》by Martin Kleppmann（免费英文版：https://dataintensive.net/）
+- **[核心] 《Designing Data-Intensive Applications》by Martin Kleppmann**（免费英文版：https://dataintensive.net/）
   - 特点：从数据系统视角讲解分布式存储、复制、分区、一致性、事务，工程导向，被业界广泛推荐
   - 对应章节：1.1 CAP定理、1.3 资源调度算法
 - 《Computer Architecture: A Quantitative Approach》(6th Edition, 2017) by John L. Hennessy & David A. Patterson
@@ -81,6 +122,17 @@
 - MIT 6.5840 Lab 代码参考（2023版）：https://github.com/ToniXWD/MIT6.5840
 - MIT 6.5840 Lab 实现（含笔记）：https://github.com/casey-li/MIT6.5840
 - MIT 6.824/6.5840 完整实验仓库：https://github.com/PeterHUistyping/MIT6.824-6.5840-Distributed-Systems
+
+### 8h 核心路径（只看 [核心] 资源）
+| 时段 | 内容 | 时长 |
+|------|------|------|
+| 输入 | MIT 6.5840 精看 4 讲（导论/MapReduce、Raft①、Raft②、容错）@1.75x | 2h |
+| 输入 | 配套读 Raft 论文摘要 / 幻灯片（文本优先） | 1h |
+| 输入 | 费曼笔记：每讲写 3 句总结 | 1h |
+| 实践 | 文字复述 Raft 选举流程 + 画一张一致性场景设计图 | 2.5h |
+| 综合 | 写模块一交付物：异构资源调度方案草稿 | 1.5h |
+
+> CMU 15-445、B站实战、Coursera 数据库、Aalto 联邦学习 → 全归 `[拓展]`，有空再碰。
 
 ### 进度要求
 - **第 1 周**：完成全部 1.1–1.5 内容学习
@@ -128,20 +180,20 @@
   - 链接：https://max.book118.com/html/2025/0221/5112004001012103.shtm
   - 备注：郭庆来团队撰写，算电协同微观-中观-宏观三层框架
 
-**视频课程**
-- **Harvard CS249R: Edge ML Systems（Machine Learning for Intelligent Systems, 2026版）**
+**视频课程**　`[核心]` = Harvard CS249R（主课）；报告与白皮书均归 `[参考]`
+- **[核心] Harvard CS249R: Edge ML Systems（Machine Learning for Intelligent Systems, 2026版）**
   - 课程主页：https://harvard-edge.github.io/cs249r_book/
   - GitHub（含开源教材与幻灯片）：https://github.com/harvard-edge/cs249r_book
   - 备注：Harvard CS 249R 是面向智能系统（AI/ML）的工程实践课程，涵盖绿色AI、能耗优化、模型压缩、硬件协同设计等章节，MIT Press 2026 年出版开源教材（CC BY-NC-SA 4.0），与模块二"绿色算力"高度匹配
 
-**经典教材**
-- 《Data Center Design and Maintenance》by Robert McFarlane
+**经典教材**　`[核心]` = 《Data Center Design》+ 《SRE》；《Green Computing》归 `[拓展]`
+- **[核心] 《Data Center Design and Maintenance》by Robert McFarlane**
   - 特点：数据中心规划、散热、能效设计实践指南，PUE优化
   - 对应章节：2.1 算力网络体系架构、2.5 实践项目
 - 《Green Computing: Tools and Techniques for Saving Energy, Environment, and Money》by Bud Black
   - 特点：绿色计算实践导论，涵盖节能策略、虚拟化、电源管理、碳足迹评估
   - 对应章节：2.2 绿色算力发展态势
-- 《Site Reliability Engineering》by Google SRE Team（免费在线：https://sre.google/sre-book/table-of-contents/）
+- **[核心] 《Site Reliability Engineering》by Google SRE Team**（免费在线：https://sre.google/sre-book/table-of-contents/）
   - 特点：Google工程团队撰写，涵盖容量规划、负载均衡、故障恢复、过载处理
   - 对应章节：2.4 容量配置与动态演进
 
@@ -149,6 +201,15 @@
 - 算力网络演进与生态应用创新：https://blog.csdn.net/tiangang2024/article/details/146348322
 - 算力网络架构演进的思考（新华三）：https://blog.csdn.net/weixin_45882672/article/details/149910951
 - 北京大学宋洁教授：AI大模型如何实现算力低耗能：https://bda.pku.edu.cn/info/1024/3192.htm
+
+### 8h 核心路径（只看 [核心] 资源）
+| 时段 | 内容 | 时长 |
+|------|------|------|
+| 输入 | Harvard CS249R 精读 3 章（绿色 AI、能耗优化、硬件协同）@文本优先 | 2h |
+| 输入 | 信通院《绿色算力技术创新研究报告》+《东数西算绿色算力指数》速读 | 1h |
+| 输入 | 费曼笔记 + 画算力网络三层架构图 | 1h |
+| 实践 | 用公开数据做城市级算力中心选址草稿 | 2.5h |
+| 综合 | 写模块二交付物：区域算力设施布局与演进规划报告 | 1.5h |
 
 ### 进度要求
 - **第 2 周**：完成全部 2.1–2.5 内容学习
@@ -173,7 +234,7 @@
 
 ### 推荐学习资源
 
-**报告与文章**
+**报告与文章**　`[参考]`：全部报告/文章均为备查，用到再翻；教材中《Optimization of Power System Operation》为 `[核心]`
 - 2025算电协同发展论坛纪实（演讲嘉宾包括国网、南网、清华等机构专家）
   - 链接：https://new.qq.com/rain/a/20251216A02S3F00
   - 备注：算力调度与电力调度双向协同的实践案例与前沿思考
@@ -209,7 +270,7 @@
 - 《Electric Power Systems》by B. M. Weedy et al. (5th Edition, 2012)
   - 特点：电力系统经典教材，涵盖发电、输电、配电、负荷调度，为理解算电协同的电力侧提供基础
   - 对应章节：3.1 算电协同基础、3.3 多主体协同优化
-- 《Optimization of Power System Operation》by Jizhong Zhu (2nd Edition, 2015)
+- **[核心] 《Optimization of Power System Operation》by Jizhong Zhu (2nd Edition, 2015)**
   - 特点：电力系统优化调度专著，含经济调度、机组组合、多目标优化模型，与算电协同调度模型直接相关
   - 对应章节：3.3 多主体协同优化、3.5 实践项目
 - 《Renewable Energy Engineering》by Nicholas Jenkins et al. (2017)
@@ -222,6 +283,14 @@
 **延伸阅读**
 - 算电协同核心技术逻辑拆解：https://blog.csdn.net/EAlReport/article/details/161227373
 - 绿色革命：算力与电力如何共舞实现双碳梦想：https://www.xianjichina.com/special/detail_555140.html
+
+### 8h 核心路径（只看 [核心] 资源）
+| 时段 | 内容 | 时长 |
+|------|------|------|
+| 输入 | 郭庆来《算力电力协同白皮书》+ 2025 算电论坛纪实 精读 | 2h |
+| 输入 | 《Optimization of Power System Operation》调度模型章节 + 费曼笔记 | 2h |
+| 实践 | 基于公开数据集做算电协同调度仿真（简化版） | 2.5h |
+| 综合 | 写模块三交付物：算电协同调度方案设计书（含数学模型） | 1.5h |
 
 ### 进度要求
 - **第 3 周**：完成全部 3.1–3.5 内容学习
@@ -246,8 +315,8 @@
 
 ### 推荐学习资源
 
-**视频课程**
-- **Coursera — Game Theory (Stanford & UBC)**
+**视频课程**　`[核心]` = Coursera Game Theory I（主课）；Game Theory II / Roughgarden / B站 均归 `[拓展]`
+- **[核心] Coursera — Game Theory (Stanford & UBC)**
   - 链接：https://www.coursera.org/learn/game-theory-1
   - 讲师：Matthew O. Jackson (Stanford)、Kevin Leyton-Brown、Yoav Shoham (UBC)
   - 讲师主页：https://www.coursera.org/instructor/jacksonm
@@ -276,8 +345,8 @@
   - CSDN笔记：https://blog.csdn.net/weixin_44251455/article/details/141329069
   - 备注：Tim Roughgarden 著作中文学习笔记，涵盖迈尔森引理、机制设计、多参数机制设计
 
-**经典教材**
-- 《Algorithmic Game Theory》by Noam Nisan, Tim Roughgarden, Éva Tardos, Vijay V. Vazirani (Cambridge University Press, 2007)
+**经典教材**　`[核心]` = Roughgarden《Twenty Lectures》+ 《Algorithmic Game Theory》选章；其余 `[拓展]`
+- **[核心] 《Algorithmic Game Theory》by Noam Nisan, Tim Roughgarden, Éva Tardos, Vijay V. Vazirani (Cambridge University Press, 2007)**
   - 作者：四位领域权威，Nisan（耶路撒冷希伯来大学）、Roughgarden（斯坦福/哥伦比亚）、Tardos（康奈尔）、Vazirani（UC Berkeley）
   - 特点：算法博弈论奠基性教材，涵盖机制设计、拍卖理论、均衡计算、博弈论与网络经济学，40余位顶尖学者共同编写
   - 在线资源：https://www.cambridge.org/core/books/algorithmic-game-theory/AD8F7B6C0C8B3C9A4F3E0C0C0C0C0C0C
@@ -308,6 +377,14 @@
   - 链接：https://blog.csdn.net/bjdx_001/article/details/145572716
   - 备注：算力市场与电力市场融合运作机制
 
+### 8h 核心路径（只看 [核心] 资源）
+| 时段 | 内容 | 时长 |
+|------|------|------|
+| 输入 | Coursera Game Theory I 精看（纳什均衡、贝叶斯博弈、重复博弈）@1.75x | 2.5h |
+| 输入 | Roughgarden《Twenty Lectures》机制设计章节 + 费曼笔记 | 1.5h |
+| 实践 | 设计一个算力双边拍卖机制（画流程图 + 写规则） | 2.5h |
+| 综合 | 写模块四交付物：低碳导向算力交易机制方案 | 1.5h |
+
 ### 进度要求
 - **第 4 周**：完成全部 4.1–4.5 内容学习
 - 交付物：设计一个低碳导向的算力交易机制方案（含激励模型和公平性分析）
@@ -331,8 +408,8 @@
 
 ### 推荐学习资源
 
-**视频课程**
-- **蚂蚁隐语隐私计算实训营（B站系列课程，2024-2025年持续更新）**
+**视频课程**　`[核心]` = 蚂蚁隐语隐私计算实训营（主课，动手优先）；Aalto CS-E4740 / FederatedScope / CMU 15-445 归 `[拓展]`
+- **[核心] 蚂蚁隐语隐私计算实训营（B站系列课程，2024-2025年持续更新）**
   - 第3讲：详解隐私计算框架及技术要点：https://www.bilibili.com/video/BV1dJ4m1b7AX/
   - 第4讲：隐语 SecretFlow/SecretNote 安装与使用：https://www.bilibili.com/video/BV1Hw4m1e7CA
   - 联邦学习第5课：基于隐私保护的机器学习算法：https://blog.csdn.net/weixin_43427267/article/details/140560752
@@ -349,8 +426,8 @@
   - 课程主页：https://15445.courses.cs.cmu.edu/spring2023/
   - 备注：分布式数据库系统背景知识，可作为模块五"安全多方计算"的前置补充
 
-**经典教材**
-- 《The Algorithmic Foundations of Differential Privacy》by Cynthia Dwork & Aaron Roth (Foundations and Trends in Theoretical Computer Science, 2014)
+**经典教材**　`[核心]` = Dwork《Differential Privacy》+ 杨强《Federated Learning》；其余 `[拓展]`
+- **[核心] 《The Algorithmic Foundations of Differential Privacy》by Cynthia Dwork & Aaron Roth (Foundations and Trends in Theoretical Computer Science, 2014)**
   - 作者：Dwork（哈佛，差分隐私提出者）、Roth（宾夕法尼亚大学）
   - 特点：差分隐私领域的奠基性专著，系统讲解拉普拉斯机制、指数机制、组合定理、稀疏向量技术
   - 免费在线：https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf
@@ -398,6 +475,14 @@
 - 差分隐私联邦学习实战 Jupyter Notebook
   - 链接：https://github.com/gitgik/differential-privacy-federated-learning
   - 备注：含完整代码示例，适合动手学习
+
+### 8h 核心路径（只看 [核心] 资源）
+| 时段 | 内容 | 时长 |
+|------|------|------|
+| 输入 | 蚂蚁隐语实训营 第3–4讲（框架 + SecretFlow 安装使用）@1.75x | 2h |
+| 输入 | Dwork《Differential Privacy》拉普拉斯机制章节 + 费曼笔记 | 1.5h |
+| 实践 | 用 SecretFlow 跑一个纵向联邦学习 demo | 2.5h |
+| 综合 | 写模块五交付物：算力服务系统安全评估报告 | 2h |
 
 ### 进度要求
 - **第 5 周**：完成全部 5.1–5.5 内容学习
